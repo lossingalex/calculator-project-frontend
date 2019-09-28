@@ -26,7 +26,7 @@ deploy:
   # AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION
   provider: script
   script: 
-    - aws s3 sync build s3://calculator-project --delete
+    - npm run deploy
   skip_cleanup: true
 
 after_success:
