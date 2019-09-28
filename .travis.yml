@@ -9,6 +9,7 @@ before_install:
   - npm install
 script:
   - npm run build
+  - npm test
 branches:
   only:
     - develop
