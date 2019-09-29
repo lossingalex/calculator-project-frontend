@@ -1,5 +1,7 @@
 # calculator-project-frontend
 
+This project is done as part of an exercise.
+
 ## Documentation
 
 ### Access
