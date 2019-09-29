@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Screen from './components/screen';
 import Button from './components/button';
@@ -71,6 +70,7 @@ class App extends React.Component {
   // our method to handle all click events from our buttons
   handleClick(event){
     const value = event.target.value; // get the value from the target element (button)
+    const question = this.state.question;
     switch (value) {
       case '=': {
         fetch('https://vqe3fh8pt7.execute-api.ap-southeast-1.amazonaws.com/dev/calculate',{
@@ -83,7 +83,7 @@ class App extends React.Component {
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: JSON.stringify({
-            formula: this.state.question
+            formula: question
           })
         })
         .then(res => res.json())
@@ -113,12 +113,14 @@ class App extends React.Component {
       case 'tan':
       case 'cos': {
         // if it's the Cls sign, just clean our question and answer in the state
-        this.setState({ question: this.state.question += value + "("})
+        // eslint-disable-next-line
+        this.setState({ question: question + value + "("})
         break;
       }
       default: {
         // for every other commmand, update the answer in the state
-        this.setState({ question: this.state.question += value})
+        // eslint-disable-next-line
+        this.setState({ question: question + value})
         break;
       }
     }
