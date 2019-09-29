@@ -27,27 +27,42 @@ class App extends React.Component {
           </div>
           <Screen question={this.state.question} answer={this.state.answer}/>
           <div className="button-row">
-            <Button label={'1'} handleClick={this.handleClick} type='input' />
-            <Button label={'2'} handleClick={this.handleClick} type='input' />
-            <Button label={'3'} handleClick={this.handleClick} type='input' />
-            <Button label={'4'} handleClick={this.handleClick} type='input' />
-            <Button label={'-'} handleClick={this.handleClick} type='action' />
-            <Button label={'+'} handleClick={this.handleClick} type='action' />
+            <Button label={'sin'} handleClick={this.handleClick} type='input' />
+            <Button label={'cos'} handleClick={this.handleClick} type='input' />
+            <Button label={'tan'} handleClick={this.handleClick} type='input' />
+            <Button label={'log'} handleClick={this.handleClick} type='input' />
+            <Button label={'sqrt'} handleClick={this.handleClick} type='input' />
+            <Button label={'^'} handleClick={this.handleClick} type='input' />
           </div>
           <div className="button-row">
-            <Button label={'5'} handleClick={this.handleClick} type='input' />
-            <Button label={'6'} handleClick={this.handleClick} type='input' />
+            <Button label={'('} handleClick={this.handleClick} type='input' />
+            <Button label={')'} handleClick={this.handleClick} type='input' />
+            <Button label={'%'} handleClick={this.handleClick} type='input' />
+            <Button label={'Cls'} handleClick={this.handleClick} type='action' />
+          </div>
+          <div className="button-row">
             <Button label={'7'} handleClick={this.handleClick} type='input' />
             <Button label={'8'} handleClick={this.handleClick} type='input' />
-            <Button label={'*'} handleClick={this.handleClick} type='action' />
+            <Button label={'9'} handleClick={this.handleClick} type='input' />
             <Button label={'/'} handleClick={this.handleClick} type='action' />
           </div>
           <div className="button-row">
-            <Button label={'9'} handleClick={this.handleClick} type='input' />
-            <Button label={'.'} handleClick={this.handleClick} type='input' />
+            <Button label={'4'} handleClick={this.handleClick} type='input' />
+            <Button label={'5'} handleClick={this.handleClick} type='input' />
+            <Button label={'6'} handleClick={this.handleClick} type='input' />
+            <Button label={'*'} handleClick={this.handleClick} type='action' />
+          </div>
+          <div className="button-row">
+            <Button label={'1'} handleClick={this.handleClick} type='input' />
+            <Button label={'2'} handleClick={this.handleClick} type='input' />
+            <Button label={'3'} handleClick={this.handleClick} type='input' />
+            <Button label={'-'} handleClick={this.handleClick} type='action' />
+          </div>
+          <div className="button-row">
             <Button label={'0'} handleClick={this.handleClick} type='input' />
-            <Button label={'Cls'} handleClick={this.handleClick} type='action' />
-            <Button label={'='} handleClick={this.handleClick} type='action' />
+            <Button label={'.'} handleClick={this.handleClick} type='input' />
+            <Button label={'='} handleClick={this.handleClick} type='equal' />
+            <Button label={'+'} handleClick={this.handleClick} type='action' />
           </div>
         </header>
       </div>
@@ -90,6 +105,15 @@ class App extends React.Component {
       case 'Cls': {
         // if it's the Cls sign, just clean our question and answer in the state
         this.setState({ question: '', answer: '' });
+        break;
+      }
+      case 'sqrt':
+      case 'log':
+      case 'sin':
+      case 'tan':
+      case 'cos': {
+        // if it's the Cls sign, just clean our question and answer in the state
+        this.setState({ question: this.state.question += value + "("})
         break;
       }
       default: {

@@ -24,6 +24,14 @@
 
 input,
 .button,
-.input-button {
+.input {
   font-size: 30px 
+}
+
+.equal {
+  color: blue;
+}
+
+.action {
+  color: green;
 }
