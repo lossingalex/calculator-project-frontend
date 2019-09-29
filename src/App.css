@@ -35,3 +35,8 @@ input,
 .action {
   color: green;
 }
+
+.example {
+  font-size: 12px;
+  text-align: left;
+}
