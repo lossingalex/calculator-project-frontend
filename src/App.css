@@ -20,3 +20,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+input,
+.button,
+.input-button {
+  font-size: 30px 
+}

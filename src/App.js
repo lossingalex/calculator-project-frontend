@@ -57,12 +57,34 @@ class App extends React.Component {
   handleClick(event){
     const value = event.target.value; // get the value from the target element (button)
     switch (value) {
-      case '=': { 
-        // if it's an equal sign, use the eval module to evaluate the question
-        // convert the answer (in number) to String
-        const answer = eval(this.state.question).toString();
-        // update answer in our state.
-        this.setState({ answer });
+      case '=': {
+        fetch('https://vqe3fh8pt7.execute-api.ap-southeast-1.amazonaws.com/dev/calculate',{
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify({
+            formula: this.state.question
+          })
+        })
+        .then(res => res.json())
+        .then((data) => {
+          // update answer in our state.
+          console.log("==== Result", data);
+          if (data.result) {
+            this.setState({ answer:data.result });
+          } else {
+            this.setState({ answer:"(" + data.code + "): " + data.detail});
+          }
+        })
+        .catch((data) => {
+          // update answer in our state.
+          console.log("==== ERROR", data);
+        })
         break;
       }
       case 'Cls': {
