@@ -30,7 +30,11 @@ class App extends React.Component {
             <Button label={'cos'} handleClick={this.handleClick} type='input' />
             <Button label={'tan'} handleClick={this.handleClick} type='input' />
             <Button label={'log'} handleClick={this.handleClick} type='input' />
+          </div>
+          <div className="button-row">
             <Button label={'sqrt'} handleClick={this.handleClick} type='input' />
+            <Button label={'cbrt'} handleClick={this.handleClick} type='input' />
+            <Button label={'!'} handleClick={this.handleClick} type='input' />
             <Button label={'^'} handleClick={this.handleClick} type='input' />
           </div>
           <div className="button-row">
@@ -62,6 +66,14 @@ class App extends React.Component {
             <Button label={'.'} handleClick={this.handleClick} type='input' />
             <Button label={'='} handleClick={this.handleClick} type='equal' />
             <Button label={'+'} handleClick={this.handleClick} type='action' />
+          </div>
+          <div class="example">
+            <p>Formula Examples:</p>
+            <ul>
+              <li>21/(2.3+0.7)</li>
+              <li>2!</li>
+              <li>cbrt(9)</li>
+            </ul>
           </div>
         </header>
       </div>
@@ -108,6 +120,7 @@ class App extends React.Component {
         break;
       }
       case 'sqrt':
+      case 'cbrt':
       case 'log':
       case 'sin':
       case 'tan':
