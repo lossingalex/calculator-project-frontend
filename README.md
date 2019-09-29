@@ -1,9 +1,5 @@
 # calculator-project-frontend
 
-
-
-# calculator-project-frontend
-
 ## Documentation
 
 ### Access
